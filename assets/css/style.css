@@ -37,7 +37,7 @@ body {
   overflow-x: hidden;
 }
 main{
-  width: 100%;
+  width: calc(100% - 250px);
   position:relative;
   margin-left:250px;
 }
@@ -79,18 +79,18 @@ h2{
   margin: 0 auto;
 }
 #about, #branding, #works, #contact{
-  border-top:1px solid var(--border-color)
+  border-top:1px dashed var(--border-color)
 }
 .section {
   padding: 80px 0;
   position: relative;
-  scroll-margin-top: 20px;
+  scroll-margin-top: 50px;
   /*scroll-margin-top: calc(var(--nav-h) + 24px);*/
 }
-
-main{
-    width:100%;
+#about.section{
+  scroll-margin-top: -1px;
 }
+
 
 .eyebrow {
   display: inline-flex;
@@ -131,7 +131,7 @@ main{
 }
 
 .site-header {
-  width: 0;
+  width: 250px;
   height: 100vh;
   position: fixed;
   inset: 0 0 auto 0;
@@ -142,14 +142,13 @@ main{
     border-color var(--transition),
     backdrop-filter var(--transition),
     box-shadow var(--transition);
-  border-right:1px solid #555;
+    border-right:1px solid #555; 
 }
 
 .site-header.scrolled {
   background: rgba(255, 255, 255, 0.78);
-  border-bottom: 1px solid rgba(17, 24, 39, 0.06);
   backdrop-filter: blur(16px);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05); 
 }
 
 .nav {
@@ -208,7 +207,7 @@ main{
   min-height: 100svh;
   display: grid;
   align-items: end;
-  padding: 118px 0 56px;
+  padding: 118px 0 0;
   position: relative;
   overflow: clip;
   isolation: isolate;
@@ -593,7 +592,7 @@ main{
   grid-template-columns: 84px 1fr;
   gap: 18px;
   padding: 14px 0;
-  border-bottom: 1px solid rgba(17, 24, 39, 0.07);
+  border-bottom: 1px dashed var(--border-color);
 }
 
 .timeline-item:last-child {
@@ -603,6 +602,7 @@ main{
 .timeline-year {
   color: var(--accent);
   font-weight: 700;
+
 }
 
 .timeline-role strong {
@@ -1737,8 +1737,16 @@ template {
   :root {
     --container: min(100% - 28px, 100%);
   }
-  main{
+  main
+  {
+    width: 100%;
     margin-left:0;
+  }
+  .site-header{
+  border-right:none;
+  }
+  .site-header.scrolled{
+    border-bottom:1px solid #555;
   }
   h1{
     font-size:16px;
@@ -1787,15 +1795,13 @@ template {
 
   .hero {
     min-height: auto;
-    padding-top: 64px;
-            padding-bottom: 80px;
+    padding-top: 0;
   }
 
   .hero-inner {
     gap: 0px;
     /* width: min(100% - 28px, 100%);
     grid-template-columns: 1fr; */
-    bottom: -50px;
   }
 .scroll-indicator {
   display: none;

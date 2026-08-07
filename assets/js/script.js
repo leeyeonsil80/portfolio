@@ -1,5 +1,7 @@
 
     const siteHeader = document.getElementById('siteHeader');
+    const mainSection = document.querySelector('main');
+    const footerSection = document.querySelector('footer');
     const modal = document.getElementById('portfolioModal');
     const modalDialog = modal.querySelector('.modal-dialog');
     const modalHeroMedia = document.getElementById('modalHeroMedia');
@@ -297,7 +299,7 @@
 
     const setHeaderState = () => {
       if (window.scrollY > 20) siteHeader.classList.add('scrolled');
-      else siteHeader.classList.remove('scrolled');
+      else siteHeader.classList.remove('scrolled');    
     };
 
     setHeaderState();
