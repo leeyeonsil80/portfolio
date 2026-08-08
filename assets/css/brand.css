@@ -1,0 +1,35 @@
+*{margin:0; padding:0;}
+a{text-decoration:none;
+    color:inherit;}
+img{
+    display: block;
+    
+}
+body{
+    font-family: 'pretendard';
+    font-weight: 400;
+}
+.fixed_box{position:fixed;
+    bottom:40px;
+    right:30px;
+    width:40px;}
+#top img{
+        width: 100%;
+    }
+.home_btn, .top_btn{
+    display: inline-block;
+    width:50px;
+    line-height: 50px;
+    background-color: #fff;
+    border:1px solid #fff;
+    text-align: center;
+    border-radius:50%;
+    margin-bottom:8px;
+    color:#1d2323;
+    transition: all 0.5s;
+}
+.fixed_box a:hover{
+    background-color: #262626;
+    color:#fff;
+    border:1px solid #444;
+}

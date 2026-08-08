@@ -121,7 +121,7 @@ h2{
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.4;
   letter-spacing: -0.04em;
-  padding-left: 30px;
+  padding-left: 21px;
 }
 
 .section-head p {
@@ -156,7 +156,6 @@ h2{
 }
 .nav {
   margin-top:50px;
-  width: var(--container);
   font-family: 'satoshi-bold';
   font-weight: 700;
   line-height: 1.2;
@@ -183,20 +182,32 @@ h2{
 .nav-links {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  color: var(--text-muted);
+  align-items: flex-start;  /* 컨테이너 레벨에서도 명시 */
+  gap: 15px;
   font-size: 16px;
+  overflow: hidden;
 }
 
-.nav-links a {
+.nav-link {
   position: relative;
-  padding: 6px 0;
-  transition: color var(--transition), transform var(--transition);
+  display: inline-block;   /* 핵심: 텍스트 길이만큼만 너비 차지 */
+  text-decoration: none;
+  color: var(--text);
+  padding-bottom: 4px;
 }
 
+.nav-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;      /* 부모(.nav-link)가 텍스트 크기만큼이므로 이것도 텍스트 크기만큼 */
+  height: 1px;        /* 고정 1px */
+  background: var(--text);
 
-
-.nav-links a:hover,
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+/* .nav-links a:hover,
 .nav-links a:focus-visible {
   color: var(--text);
 }
@@ -204,6 +215,65 @@ h2{
 .nav-links a:hover::after,
 .nav-links a:focus-visible::after {
   transform: scaleX(1);
+} */
+
+
+
+/* 햄버거 버튼 */
+.hamburger {
+  height: 30px;
+  height: 30px;
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.line {
+  fill: none;
+  stroke: #000; /* 디자인에 맞게 색상 조정 */
+  stroke-width: 2;
+  stroke-linecap: round;
+  transform-origin: center;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.bar {
+  stroke: #000;
+  stroke-width: 2;
+  stroke-linecap: round;
+
+  transform-box: view-box;
+  transform-origin: 16px 16px;
+
+  transition: translate 0.35s ease, scale 0.35s ease, opacity 0.2s ease;
+}
+
+/* 기본 상태: 길이가 다른 3줄 (-, ___, __) */
+.bar-top    { translate: 0 0; }
+.bar-middle { translate: 0 0; }
+.bar-bottom { translate: 0 0; }
+
+/* 활성화 상태: 세 줄이 중앙(y:16)으로 모여 하나의 선(---)이 됨 */
+/* 목표 길이: 18
+   top    : 12 * 1.5   = 18
+   middle : 24 * 0.75  = 18
+   bottom : 16 * 1.125 = 18
+*/
+
+.hamburger.active .bar-top {
+  translate: 0 6px;     /* y:10 -> 16 */
+  scale: 1.5 1;          /* 길이 12 -> 18 */
+}
+.hamburger.active .bar-middle {
+  translate: 0 0;        /* 이미 중심 */
+  scale: 0.75 1;         /* 길이 24 -> 18 */
+}
+.hamburger.active .bar-bottom {
+  translate: 0 -6px;    /* y:22 -> 16 */
+  scale: 1.125 1;        /* 길이 16 -> 18 */
 }
 
 .hero {
@@ -1043,7 +1113,16 @@ h2{
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.9);
 }
-
+.brand_thumb{
+  max-height: 202px;
+  overflow: hidden;
+}
+.brand_thumb img{
+  transition: all 2s;
+}
+.brand_thumb img:hover{
+  scale: 1.2;
+}
 .thumb-overlay {
   position: absolute;
   left: 0;
@@ -1059,7 +1138,7 @@ h2{
     gap: 10px;
 }
 .skills-icon img{
-  width: 30px;
+  height: 30px;
 }
 .thumb-explanation{
   height: 52px;
@@ -1733,9 +1812,15 @@ template {
   .thumb-track>.thumb-card {
     width: min(260px, 42vw);
   }
+  .brand-stack{
+    gap:60px;
+  } 
+    .works-stack{
+    gap:60px;
+  }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   :root {
     --container: min(100% - 28px, 100%);
   }
@@ -1763,28 +1848,12 @@ template {
   .site-header {
     width: 100%;
     height: 80px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    gap:20px;
     padding: 14px 20px;
     border-right:none;
   }
 
-  .nav {
-    margin-top:0;
-    align-items: flex-start;
-  }
 
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: end;
-    font-size: 0.9rem;
-  
-  }
 
   .section {
     padding: 88px 0;
@@ -1901,5 +1970,59 @@ template {
   }
   .site-footer{
     margin-left:0;
+  }
+  .brand-info h3 span{
+    padding:0;
+  }
+  .brand-stack{
+    gap:40px;
+  } 
+    .works-stack{
+    gap:40px;
+  }
+}
+
+/* 모바일 메뉴 */
+@media (max-width: 768px) {
+  .h1_area{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .hamburger {
+    display: block;
+    margin-left:auto;
+  }
+  .nav {
+    margin-top:50px;
+    font-family: 'satoshi-bold';
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 320px;
+    height: 100vh;
+    font-size:16px;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 100px 30px;
+    gap: 15px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    border-left:1px dashed var(--border-color);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .side_info {
+    display: none;
   }
 }
