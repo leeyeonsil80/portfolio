@@ -21,22 +21,42 @@
 </head>
 
 <body>
-  <header class="site-header" id="siteHeader">
-  <h1><a href="#hero">SEERY <span>PORTFOLIO</span></a></h1>
-    <nav class="nav">
-     <div class="nav-links">
-        <a href="#about">ABOUT</a>
-        <a href="#branding">BRANDING</a>
-        <a href="#works">WORKS</a>
-        <a href="#contact">CONTACT</a>
-      </div>
-    </nav>
-
-    <div class="side_info">
-      <strong>Email</strong>
-      <span>seery@naver.com</span>
-    </div>
-  </header>
+<header class="site-header" id="siteHeader">
+  <div class="h1_area">
+    <h1><a href="#hero">SEERY <span>PORTFOLIO</span></a></h1>
+    <button class="hamburger" id="hamburgerBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 32 32" width="30" height="30">
+        <line class="bar bar-top"    x1="14" y1="10" x2="26" y2="10" />
+        <line class="bar bar-middle" x1="4"  y1="16" x2="28" y2="16" />
+        <line class="bar bar-bottom" x1="8"  y1="22" x2="24" y2="22" />
+      </svg>
+    </button>
+  </div>
+<nav class="nav">
+  <div class="nav-links" id="navLinks">
+    <a href="#about" class="nav-link">
+      ABOUT
+      <span class="nav-line"></span>
+    </a>
+    <a href="#branding" class="nav-link">
+      BRANDING
+      <span class="nav-line"></span>
+    </a>
+    <a href="#works" class="nav-link">
+      WORKS
+      <span class="nav-line"></span>
+    </a>
+    <a href="#contact" class="nav-link">
+      CONTACT
+      <span class="nav-line"></span>
+    </a>
+  </div>
+</nav>
+  <div class="side_info">
+    <strong>Email</strong>
+    <span>seery@naver.com</span>
+  </div>
+</header>
 
   <main>
     <section class="hero" id="hero">
@@ -216,7 +236,8 @@
                       <p class="skills-icon">
                         <img src="assets/img/photoshop.png" alt="icon">
                         <img src="assets/img/illustrator.png" alt="icon">
-                        <img src="assets/img/indesign.png" alt="icon">
+                        <img src="assets/img/notion.png" alt="icon">
+                        <img src="assets/img/gpt.png" alt="icon">
                       </p>
                     </div>
                      </a> 
@@ -233,8 +254,8 @@
                       <p class="skills-icon">
                         <img src="assets/img/photoshop.png" alt="icon">
                         <img src="assets/img/illustrator.png" alt="icon">
-                        <img src="assets/img/indesign.png" alt="icon">
-                      </p>
+                        <img src="assets/img/gpt.png" alt="icon">
+                        <img src="assets/img/midjourney.png" alt="icon">
                     </div>
                   </a>
                 </article>
@@ -252,6 +273,7 @@
                         <img src="assets/img/figma.png" alt="icon">
                         <img src="assets/img/photoshop.png" alt="icon">
                         <img src="assets/img/illustrator.png" alt="icon">
+                        <img src="assets/img/flow.png" alt="icon">
                       </p>
                     </div>
                   </a>
@@ -259,7 +281,7 @@
 
                 <article class="thumb-card brand-thumb">
                   <!-- <video class="thumb-video" autoplay muted loop playsinline><source src="assets/brand-02-site.mp4" type="video/mp4" /></video> -->
-                  <a href="https://leeyeonsil.dothome.co.kr/" target="_blank">
+                  <a href="https://lee/" target="_blank">
                      <video class="thumb-video" muted loop playsinline preload="metadata">
                       <source src="assets/video/brand_1_3.mp4" type="video/mp4" />
                     </video>
@@ -280,141 +302,6 @@
             </div>
           </section>
 
-          <section class="card brand-row reveal reveal-scale" style="display: none;">
-            <div class="brand-info brand2_color">
-              <!-- 브랜드별 색상  brand2_color-->
-              <h3>BEAT LAB</h3>
-              <p>
-                리뉴얼 중심의 브랜드 프로젝트로, 비주얼 아이덴티티와 디지털 확장 화면을 한 줄 슬라이드 구조로 보여줍니다.
-              </p>
-              <!-- <div class="brand-meta">
-                <span class="tag"><a href="#" target="_blank">Identity</a></span>
-                <span class="tag"><a href="#" target="_blank">Design BX</a></span>
-                <span class="tag"><a href="#" target="_blank">Web Guide</a></span>
-                <span class="tag point-color"><a href="#" target="_blank">Web Site</a></span>
-                <span class="tag"><a href="#" target="_blank">Video Guide</a></span>
-                <span class="tag"><a href="#" target="_blank">App</a></span>
-              </div> -->
-            </div>
-
-            <div>
-              <div class="brand-slider-head">
-                <span class="brand-slider-title">Brand Planning · Mockup · Web Guide · Website · Editorial ·
-                  Display</span>
-                <div class="slider-controls">
-                  <button class="slider-btn" type="button" data-slider-prev="brandTrack02">←</button>
-                  <button class="slider-btn" type="button" data-slider-next="brandTrack02">→</button>
-                </div>
-              </div>
-              <div class="brand-track slider-track" id="brandTrack02">
-                <article class="thumb-card brand-thumb">
-                  <a href="#" target="_blank">
-                    <video class="thumb-video" muted loop playsinline preload="metadata">
-                      <source src="assets/video/brand_thumbnail_video_sample.mp4" type="video/mp4" />
-                    </video>
-
-                    <!-- <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                  </a> -->
-                    <div class="thumb-overlay">
-                      <strong>Brand Planning</strong>
-                      <p class="thumb-explanation">브랜드의 기획, 디자인 스타일 가이드를 확인하실 수 있습니다.</p>
-                      <span>Insight / Positioning</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/photoshop.png" alt="icon">
-                        <img src="assets/img/illustrator.png" alt="icon">
-                        <img src="assets/img/indesign.png" alt="icon">
-                      </p>
-                    </div>
-                </article>
-                </a>
-                <article class="thumb-card brand-thumb">
-                  <!-- <video class="thumb-video" autoplay muted loop playsinline><source src="assets/brand-02-mockup.mp4" type="video/mp4" /></video> -->
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Mockup</strong>
-                      <p class="thumb-explanation">브랜드의 제품 디자인을 확인하실 수 있습니다.</p>
-                      <span>Visual System / Asset</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/photoshop.png" alt="icon">
-                        <img src="assets/img/illustrator.png" alt="icon">
-                        <img src="assets/img/indesign.png" alt="icon">
-                      </p>
-                    </div>
-                  </a>
-                </article>
-
-                <article class="thumb-card brand-thumb">
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Web Guide</strong>
-                      <p class="thumb-explanation">브랜드 사이트의 설계, 시안 디자인을 확인하실 수 있습니다.</p>
-                      <span>Flow / Component / Motion</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/figma.png" alt="icon">
-                        <img src="assets/img/photoshop.png" alt="icon">
-                        <img src="assets/img/illustrator.png" alt="icon">
-                      </p>
-                    </div>
-                  </a>
-                </article>
-
-                <article class="thumb-card brand-thumb">
-                  <!-- <video class="thumb-video" autoplay muted loop playsinline><source src="assets/brand-02-site.mp4" type="video/mp4" /></video> -->
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Website</strong>
-                      <p class="thumb-explanation">브랜드 웹사이트를 확인하실 수 있습니다.</p>
-                      <span>Live Result / Motion UI</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/html_icon.png" alt="icon">
-                        <img src="assets/img/vs_code.png" alt="icon">
-                      </p>
-                    </div>
-                    <div class="thumb-overlay"><strong></strong><span></span></div>
-                  </a>
-                </article>
-
-                <article class="thumb-card brand-thumb">
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Editorial</strong>
-                      <p class="thumb-explanation">브랜드를 확인하실 수 있습니다.</p>
-                      <span>Layout / Print / Digital</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/html_icon.png" alt="icon">
-                        <img src="assets/img/vs_code.png" alt="icon">
-                      </p>
-                    </div>
-                  </a>
-                </article>
-
-                <article class="thumb-card brand-thumb">
-                  <!-- <video class="thumb-video" autoplay muted loop playsinline><source src="assets/brand-02-display.mp4" type="video/mp4" /></video> -->
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Display</strong>
-                      <p class="thumb-explanation">브랜드를 확인하실 수 있습니다.</p>
-                      <span>Banner / Campaign / Motion</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/html_icon.png" alt="icon">
-                        <img src="assets/img/vs_code.png" alt="icon">
-                      </p>
-                    </div>
-                  </a>
-                </article>
-              </div>
-            </div>
-          </section>
-        </div>
-        <!-- //첫번째 브랜드 -->
-        <!-- 두번째 브랜드 -->
-        <div class="brand-stack">
           <section class="card brand-row reveal reveal-scale">
             <div class="brand-info brand1_color">
               <!-- 브랜드별 색상  brand1_color-->
@@ -443,13 +330,10 @@
                <div class="brand-track slider-track" id="brandTrack02">
                 <article class="thumb-card brand-thumb">
                   <a href="brand_plan2.html" target="_blank">
-                    <video class="thumb-video" muted loop playsinline preload="metadata">
+                    <!-- <video class="thumb-video" muted loop playsinline preload="metadata">
                       <source src="assets/video/brand_1_1.mp4" type="video/mp4" />
-                    </video>
-
-                    <!-- <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">-->
-                 
+                    </video> -->
+                   <div class="brand_thumb"><img src="assets/img/brand2_thumb1.jpg" alt="brand"></div>               
                     <div class="thumb-overlay">
                       <strong>Brand Planning</strong>
                       <p class="thumb-explanation">브랜드의 기획, 디자인 스타일 가이드를 확인하실 수 있습니다.</p>
@@ -457,7 +341,7 @@
                       <p class="skills-icon">
                         <img src="assets/img/photoshop.png" alt="icon">
                         <img src="assets/img/illustrator.png" alt="icon">
-                        <img src="assets/img/indesign.png" alt="icon">
+                        <img src="assets/img/gpt.png" alt="icon">
                       </p>
                     </div>
                      </a> 
@@ -465,8 +349,8 @@
                 </a>
                 <article class="thumb-card brand-thumb">
                  <a href="bibx2.html" target="_blank">
-                  <video class="thumb-video" muted loop playsinline preload="metadata"><source src="assets/video/brand_1_2.mp4" type="video/mp4" /></video>
-                 <!-- <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand"> -->
+                  <!-- <video class="thumb-video" muted loop playsinline preload="metadata"><source src="assets/video/brand_1_2.mp4" type="video/mp4" /></video> -->
+                 <div class="brand_thumb"> <img src="assets/img/brand2_thumb2_2.jpg" alt="bx" class="brand_thumb"></div>
                     <div class="thumb-overlay">
                       <strong>Mockup</strong>
                       <p class="thumb-explanation">브랜드의 제품 디자인을 확인하실 수 있습니다.</p>
@@ -474,7 +358,6 @@
                       <p class="skills-icon">
                         <img src="assets/img/photoshop.png" alt="icon">
                         <img src="assets/img/illustrator.png" alt="icon">
-                        <img src="assets/img/indesign.png" alt="icon">
                       </p>
                     </div>
                   </a>
@@ -482,9 +365,10 @@
 
                 <article class="thumb-card brand-thumb">
                   <a href="web2.html" target="_blank">
-                    <video class="thumb-video" muted loop playsinline preload="metadata">
+                    <!-- <video class="thumb-video" muted loop playsinline preload="metadata">
                       <source src="assets/video/brand_1_4.mp4" type="video/mp4" />
-                    </video>
+                    </video> -->
+                    <div class="brand_thumb"><img src="assets/img/brand2_thumb3.jpg" alt="webguide"></div>
                     <div class="thumb-overlay">
                       <strong>Web Guide</strong>
                       <p class="thumb-explanation">브랜드 사이트의 설계, 시안 디자인을 확인하실 수 있습니다.</p>
@@ -500,10 +384,11 @@
 
                 <article class="thumb-card brand-thumb">
                   <!-- <video class="thumb-video" autoplay muted loop playsinline><source src="assets/brand-02-site.mp4" type="video/mp4" /></video> -->
-                  <a href="https://leeyeonsil.dothome.co.kr/" target="_blank">
-                     <video class="thumb-video" muted loop playsinline preload="metadata">
+                  <a href="https://leeyeonsil80.github.io/beatlab/" target="_blank">
+                     <!-- <video class="thumb-video" muted loop playsinline preload="metadata">
                       <source src="assets/video/brand_1_3.mp4" type="video/mp4" />
-                    </video>
+                    </video> -->
+                     <div class="brand_thumb"><img src="assets/img/brand2_thumb4.jpg" alt="website"></div>
                     <div class="thumb-overlay">
                       <strong>Website</strong>
                       <p class="thumb-explanation">브랜드 웹사이트를 확인하실 수 있습니다.</p>
@@ -511,149 +396,19 @@
                       <p class="skills-icon">
                         <img src="assets/img/html_icon.png" alt="icon">
                         <img src="assets/img/vs_code.png" alt="icon">
+                        <img src="assets/img/premiere.png" alt="icon">
+                        <img src="assets/img/aftereffects.png" alt="icon">
+                        <img src="assets/img/gsap.png" alt="icon">
                       </p>
                     </div>
                     <div class="thumb-overlay"><strong></strong><span></span></div>
                   </a>
                 </article>
 
-              </div>
-            </div>
-          </section>
-
-          <section class="card brand-row reveal reveal-scale" style="display: none;">
-            <div class="brand-info brand2_color">
-              <!-- 브랜드별 색상  brand2_color-->
-              <h3>BEAT LAB</h3>
-              <p>
-                리뉴얼 중심의 브랜드 프로젝트로, 비주얼 아이덴티티와 디지털 확장 화면을 한 줄 슬라이드 구조로 보여줍니다.
-              </p>
-              <!-- <div class="brand-meta">
-                <span class="tag"><a href="#" target="_blank">Identity</a></span>
-                <span class="tag"><a href="#" target="_blank">Design BX</a></span>
-                <span class="tag"><a href="#" target="_blank">Web Guide</a></span>
-                <span class="tag point-color"><a href="#" target="_blank">Web Site</a></span>
-                <span class="tag"><a href="#" target="_blank">Video Guide</a></span>
-                <span class="tag"><a href="#" target="_blank">App</a></span>
-              </div> -->
-            </div>
-
-            <div>
-              <div class="brand-slider-head">
-                <span class="brand-slider-title">Brand Planning · Mockup · Web Guide · Website · Editorial ·
-                  Display</span>
-                <div class="slider-controls">
-                  <button class="slider-btn" type="button" data-slider-prev="brandTrack02">←</button>
-                  <button class="slider-btn" type="button" data-slider-next="brandTrack02">→</button>
-                </div>
-              </div>
-              <div class="brand-track slider-track" id="brandTrack02">
-                <article class="thumb-card brand-thumb">
-                  <a href="#" target="_blank">
-                    <video class="thumb-video" muted loop playsinline preload="metadata">
-                      <source src="assets/video/brand_thumbnail_video_sample.mp4" type="video/mp4" />
-                    </video>
-
-                    <!-- <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                  </a> -->
-                    <div class="thumb-overlay">
-                      <strong>Brand Planning</strong>
-                      <p class="thumb-explanation">브랜드의 기획, 디자인 스타일 가이드를 확인하실 수 있습니다.</p>
-                      <span>Insight / Positioning</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/photoshop.png" alt="icon">
-                        <img src="assets/img/illustrator.png" alt="icon">
-                        <img src="assets/img/indesign.png" alt="icon">
-                      </p>
-                    </div>
-                </article>
-                </a>
-                <article class="thumb-card brand-thumb">
-                  <!-- <video class="thumb-video" autoplay muted loop playsinline><source src="assets/brand-02-mockup.mp4" type="video/mp4" /></video> -->
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Mockup</strong>
-                      <p class="thumb-explanation">브랜드의 제품 디자인을 확인하실 수 있습니다.</p>
-                      <span>Visual System / Asset</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/photoshop.png" alt="icon">
-                        <img src="assets/img/illustrator.png" alt="icon">
-                        <img src="assets/img/indesign.png" alt="icon">
-                      </p>
-                    </div>
-                  </a>
-                </article>
-
-                <article class="thumb-card brand-thumb">
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Web Guide</strong>
-                      <p class="thumb-explanation">브랜드 사이트의 설계, 시안 디자인을 확인하실 수 있습니다.</p>
-                      <span>Flow / Component / Motion</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/figma.png" alt="icon">
-                        <img src="assets/img/photoshop.png" alt="icon">
-                        <img src="assets/img/illustrator.png" alt="icon">
-                      </p>
-                    </div>
-                  </a>
-                </article>
-
-                <article class="thumb-card brand-thumb">
-                  <!-- <video class="thumb-video" autoplay muted loop playsinline><source src="assets/brand-02-site.mp4" type="video/mp4" /></video> -->
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Website</strong>
-                      <p class="thumb-explanation">브랜드 웹사이트를 확인하실 수 있습니다.</p>
-                      <span>Live Result / Motion UI</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/html_icon.png" alt="icon">
-                        <img src="assets/img/vs_code.png" alt="icon">
-                      </p>
-                    </div>
-                    <div class="thumb-overlay"><strong></strong><span></span></div>
-                  </a>
-                </article>
-
-                <article class="thumb-card brand-thumb">
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Editorial</strong>
-                      <p class="thumb-explanation">브랜드를 확인하실 수 있습니다.</p>
-                      <span>Layout / Print / Digital</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/html_icon.png" alt="icon">
-                        <img src="assets/img/vs_code.png" alt="icon">
-                      </p>
-                    </div>
-                  </a>
-                </article>
-
-                <article class="thumb-card brand-thumb">
-                  <!-- <video class="thumb-video" autoplay muted loop playsinline><source src="assets/brand-02-display.mp4" type="video/mp4" /></video> -->
-                  <a href="#" target="_blank">
-                    <img src="assets/img/brand_thumbnail_sample.jpg" alt="brand">
-                    <div class="thumb-overlay">
-                      <strong>Display</strong>
-                      <p class="thumb-explanation">브랜드를 확인하실 수 있습니다.</p>
-                      <span>Banner / Campaign / Motion</span>
-                      <p class="skills-icon">
-                        <img src="assets/img/html_icon.png" alt="icon">
-                        <img src="assets/img/vs_code.png" alt="icon">
-                      </p>
-                    </div>
-                  </a>
-                </article>
               </div>
             </div>
           </section>
         </div>
-        <!-- //두번째 브랜드 -->
       </div>
     </section>
 
