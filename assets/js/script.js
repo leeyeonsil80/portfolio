@@ -540,3 +540,31 @@
         video.currentTime = 0;
       });
     });
+
+//햄버거 버튼
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navLinks = document.getElementById('navLinks');
+
+hamburgerBtn.addEventListener('click', () => {
+  const isActive = navLinks.classList.toggle('active');
+  hamburgerBtn.classList.toggle('active');
+  hamburgerBtn.setAttribute('aria-expanded', isActive);
+});
+
+// 메뉴 링크 클릭 시 자동으로 닫기
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburgerBtn.classList.remove('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// 메뉴 바깥 클릭 시 닫기
+document.addEventListener('click', (e) => {
+  if (!navLinks.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+    navLinks.classList.remove('active');
+    hamburgerBtn.classList.remove('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }
+});
