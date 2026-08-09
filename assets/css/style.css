@@ -1132,7 +1132,7 @@ h2{
   transform: translate(-50%, -50%) scale(0.9);
 }
 .brand_thumb{
-  max-height: 202px;
+  height: auto;
   overflow: hidden;
 }
 .brand_thumb img{
@@ -1916,7 +1916,7 @@ template {
 }
   .hero-video {
     position: inherit;
-    height: 260px;
+    height: auto
     /* mobile영상높이 */
 }
   .hero-actions{
@@ -2019,6 +2019,7 @@ template {
   .brand-info h3 span{
     padding:0;
   }
+  
   .brand-stack{
     gap:25px;
   } 
