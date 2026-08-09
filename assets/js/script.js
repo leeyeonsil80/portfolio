@@ -541,30 +541,41 @@
       });
     });
 
+
 //햄버거 버튼
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const navLinks = document.getElementById('navLinks');
 
+// 햄버거 버튼 클릭 시 메뉴 토글
 hamburgerBtn.addEventListener('click', () => {
-  const isActive = navLinks.classList.toggle('active');
-  hamburgerBtn.classList.toggle('active');
-  hamburgerBtn.setAttribute('aria-expanded', isActive);
+  navLinks.classList.toggle('active');
+
+  // 메뉴 활성화 여부에 따라 스크롤 방지/해제
+  if (navLinks.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
 });
+
+// 메뉴 닫기 함수
+function closeMobileMenu() {
+  navLinks.classList.remove('active');
+  document.body.style.overflow = ''; // 스크롤 다시 허용
+}
 
 // 메뉴 링크 클릭 시 자동으로 닫기
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    hamburgerBtn.classList.remove('active');
-    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    closeMobileMenu();
   });
 });
 
 // 메뉴 바깥 클릭 시 닫기
 document.addEventListener('click', (e) => {
-  if (!navLinks.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-    navLinks.classList.remove('active');
-    hamburgerBtn.classList.remove('active');
-    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  if (navLinks.classList.contains('active') &&
+      !navLinks.contains(e.target) &&
+      !hamburgerBtn.contains(e.target)) {
+    closeMobileMenu();
   }
 });

@@ -112,8 +112,8 @@ h2{
   display: flex;
   justify-content: space-between;
   align-items: end;
-  gap: 24px;
-  margin-bottom: 40px;
+  gap: clamp(15px, 1.6vw, 24px);
+  margin-bottom: clamp(20px, 3vw,40px);
 }
 
 .section-head h2 {
@@ -154,13 +154,30 @@ h2{
 .side_info{
   padding-top:60px;
 }
+.side_info .side_email{
+  display: block;
+  font-weight: 400;
+}
+.side_info p{
+  display: none;
+  font-family: 'Segoe Print';
+  padding-top:5px;
+  font-weight: 400;
+  font-size: 0.9rem;
+  font-style: italic;
+  color:#666;
+}
+.side_info p span{
+  display: inline-block;
+}
 .nav {
   margin-top:50px;
+}
+.nav-links a{
   font-family: 'satoshi-bold';
   font-weight: 700;
   line-height: 1.2;
 }
-
 .brand {
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -604,7 +621,7 @@ h2{
 .about-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 36px;
+  gap: clamp(15px,2.7vw,36px);
   align-items: start;
 }
 
@@ -634,7 +651,7 @@ h2{
 }
 .profile-body,
 .about-body {
-  padding: 28px;
+  padding: clamp(15px,2vw,28px);
 }
 
 .profile-body strong{
@@ -774,6 +791,7 @@ h2{
   margin: 0;
   font-size: 2.2rem;
   letter-spacing: -0.04em;
+  line-height: 1.3;
 }
 .brand-info h3 span{
   display: inline-block;
@@ -952,7 +970,7 @@ h2{
 }
 
 .brand-thumb {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
 }
 
 .thumb-card:hover {
@@ -1430,7 +1448,7 @@ h2{
 .modal-thumb {
   appearance: none;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: auto;
   padding: 0;
   overflow: hidden;
   background: rgba(247, 248, 251, 0.92);
@@ -1632,7 +1650,7 @@ body.modal-open {
 
 .modal-dynamic-body {
   display: grid;
-  gap: 18px;
+  gap: 0px;
 }
 
 .modal-type-badge {
@@ -1643,23 +1661,23 @@ body.modal-open {
   padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid rgba(17, 24, 39, 0.08);
-  background: rgba(247, 248, 251, 0.9);
+  background: rgba(250, 250, 250, 0.9);
   color: var(--text-muted);
   font-size: 0.84rem;
   letter-spacing: 0.03em;
 }
 
 .modal-summary-card {
-  padding: 18px;
-  border-radius: 20px;
-  background: linear-gradient(180deg, rgba(247, 248, 251, 0.98), rgba(255, 255, 255, 0.96));
-  border: 1px solid rgba(17, 24, 39, 0.06);
+  padding: 18px 10px 0 10px;
+  /* border-radius: 20px; */
+  /* background: linear-gradient(180deg, rgba(247, 248, 251, 0.98), rgba(255, 255, 255, 0.96)); */
+  /* border: 1px solid rgba(17, 24, 39, 0.06); */
 }
 
 .modal-summary-card strong {
   display: block;
   margin-bottom: 8px;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
 }
 
 .modal-meta-grid {
@@ -1670,9 +1688,11 @@ body.modal-open {
 
 .modal-meta-card {
   padding: 16px;
-  border-radius: 18px;
+  margin:10px 7px 0;
+  border-radius: 10px;
   background: rgba(247, 248, 251, 0.96);
   border: 1px solid rgba(17, 24, 39, 0.06);
+  font-size:0.9em;
 }
 
 .modal-meta-card strong {
@@ -1818,8 +1838,22 @@ template {
     .works-stack{
     gap:60px;
   }
+  .thumb-overlay{
+    display: block;
+    bottom:0;
+  }
+  .thumb-overlay span{
+    display: none;
+  }
+  .thumb-overlay{
+    display: block;
+    bottom:0;
+  }
+  .thumb-overlay span{
+    display: none;
+  }
 }
-
+/* 모바일*/
 @media (max-width: 768px) {
   :root {
     --container: min(100% - 28px, 100%);
@@ -1829,14 +1863,11 @@ template {
     width: 100%;
     margin-left:0;
   }
+
   .site-header{
   border-right:none;
   }
   .site-header.scrolled{
-    border-bottom:1px solid #555;
-  }
-  .side_info{
-    display: none;
   }
   h1{
     font-size:16px;
@@ -1856,9 +1887,12 @@ template {
 
 
   .section {
-    padding: 88px 0;
+    scroll-margin-top: 80px;
+    padding: 40px 0;
   }
-
+   #about.section{
+   scroll-margin-top: 80px;
+  }
   .section-head,
   .work-row-head,
   .footer-grid,
@@ -1882,7 +1916,7 @@ template {
 }
   .hero-video {
     position: inherit;
-    height: 500px;
+    height: 260px;
     /* mobile영상높이 */
 }
   .hero-actions{
@@ -1914,16 +1948,25 @@ template {
     grid-template-rows: 1.3fr 0.72fr 0.72fr;
     padding: 18px;
   }
-
+  .brand-info p{
+    padding-bottom:15px;
+    font-size:15px;
+  }
   .hero-panel--primary {
     grid-row: auto;
   }
-
+  .brand-slider-title{
+    display: none;
+  }
   .hero-panel,
   .hero-frame::after {
     border-radius: 22px;
   }
-
+  .about-body h3{
+    font-size: 1.5rem;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
   .brand-track>.brand-thumb,
   .thumb-track>.thumb-card {
     width: 86%;
@@ -1970,59 +2013,78 @@ template {
   }
   .site-footer{
     margin-left:0;
+    padding:50px 20px;
+    font-size:15px;
   }
   .brand-info h3 span{
     padding:0;
   }
   .brand-stack{
-    gap:40px;
+    gap:25px;
   } 
     .works-stack{
-    gap:40px;
+    gap:25px;
   }
+  .thumb-overlay{
+    padding:0 18px 18px;
+  }
+  .skills-icon img{
+    height: 25px;
+  }
+
+.thumb-explanation{
+  height: 40px;
+  font-size:15px;
+  line-height: 20px;
+}
+
 }
 
 /* 모바일 메뉴 */
 @media (max-width: 768px) {
   .h1_area{
+    position: fixed;
     display: flex;
+    width: calc(100% - 40px);
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    z-index: 2000;
   }
   .hamburger {
     display: block;
-    margin-left:auto;
   }
   .nav {
+
     margin-top:50px;
-    font-family: 'satoshi-bold';
-    font-weight: 700;
-    line-height: 1.2;
   }
   .nav-links {
     position: fixed;
-    top: 0;
     right: -100%;
-    width: 70%;
-    max-width: 320px;
+    top:0;
+    width: 100%;
     height: 100vh;
     font-size:16px;
-    background: #fff;
-    flex-direction: column;
+    background: rgba(255, 255, 255, 1);
     align-items: flex-end;
-    padding: 100px 30px;
+    padding: 100px 20px;
     gap: 15px;
     transition: right 0.3s ease;
     z-index: 1000;
-    border-left:1px dashed var(--border-color);
   }
+  .nav-links a{
+    font-family: 'satoshi-bold';
+    font-weight: 700;
+    line-height: 1.2;
+    font-size:1.15rem;
+  }
+  .side_info{
+    text-align: right;
+}
 
   .nav-links.active {
     right: 0;
   }
 
-  .side_info {
-    display: none;
-  }
+
 }
