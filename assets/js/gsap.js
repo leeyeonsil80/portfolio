@@ -22,7 +22,7 @@ function initNavLineHover() {
     link.addEventListener('mouseleave', link._onLeave = () => {
       gsap.to(line, {
         scaleX: 0,
-        transformOrigin: 'right center',
+        transformOrigin: 'left center',
         duration: 0.35,
         ease: 'power2.in',
         overwrite: 'auto'
