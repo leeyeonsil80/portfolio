@@ -549,7 +549,8 @@ const navLinks = document.getElementById('navLinks');
 // 햄버거 버튼 클릭 시 메뉴 토글
 hamburgerBtn.addEventListener('click', () => {
   navLinks.classList.toggle('active');
-
+  hamburgerBtn.classList.add('active');
+  hamburgerBtn.setAttribute('aria-expanded', 'true');
   // 메뉴 활성화 여부에 따라 스크롤 방지/해제
   if (navLinks.classList.contains('active')) {
     document.body.style.overflow = 'hidden';
