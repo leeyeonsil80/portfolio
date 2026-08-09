@@ -546,9 +546,9 @@
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const navLinks = document.getElementById('navLinks');
 
-// 햄버거 버튼 클릭 시 메뉴 토글
-hamburgerBtn.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+
+function openMobileMenu() {
+  navLinks.classList.add('active');
   hamburgerBtn.classList.add('active');
   hamburgerBtn.setAttribute('aria-expanded', 'true');
   // 메뉴 활성화 여부에 따라 스크롤 방지/해제
@@ -557,13 +557,24 @@ hamburgerBtn.addEventListener('click', () => {
   } else {
     document.body.style.overflow = '';
   }
-});
+}
+
 
 // 메뉴 닫기 함수
 function closeMobileMenu() {
   navLinks.classList.remove('active');
+  hamburgerBtn.classList.remove('active');
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = ''; // 스크롤 다시 허용
 }
+
+hamburgerBtn.addEventListener('click', () => {
+  if (navLinks.classList.contains('active')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+});
 
 // 메뉴 링크 클릭 시 자동으로 닫기
 navLinks.querySelectorAll('a').forEach(link => {
