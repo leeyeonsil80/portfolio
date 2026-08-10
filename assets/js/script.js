@@ -347,84 +347,106 @@
       });
     });
 
-    function enableDragScroll(track) {
-      let isDown = false;
-      let startX = 0;
-      let startScrollLeft = 0;
-      let hasDragged = false;
-      let suppressClick = false;
 
-      const threshold = 8;
+function enableDragScroll(track) {
+  let isDown = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let hasDragged = false;
+  let suppressClick = false;
 
-      track.querySelectorAll('.thumb-card').forEach((card) => {
-        card.setAttribute('draggable', 'false');
-      });
+  const threshold = 8;
 
-      const onMouseDown = (e) => {
-        if (e.button !== 0) return;
-        isDown = true;
-        hasDragged = false;
-        suppressClick = false;
-        startX = e.clientX;
-        startScrollLeft = track.scrollLeft;
-        track.classList.add('dragging');
-      };
+  track.querySelectorAll('.thumb-card').forEach((card) => {
+    card.setAttribute('draggable', 'false');
+  });
 
-      const onMouseMove = (e) => {
-        if (!isDown) return;
+  const startDrag = (clientX) => {
+    isDown = true;
+    hasDragged = false;
+    suppressClick = false;
+    startX = clientX;
+    startScrollLeft = track.scrollLeft;
+    track.classList.add('dragging');
+  };
 
-        const dx = e.clientX - startX;
+  const moveDrag = (clientX) => {
+    if (!isDown) return;
+    const dx = clientX - startX;
 
-        if (Math.abs(dx) > threshold) {
-          hasDragged = true;
-          suppressClick = true;
-        }
-
-        if (hasDragged) {
-          track.scrollLeft = startScrollLeft - dx;
-        }
-      };
-
-      const onMouseUp = () => {
-        if (!isDown) return;
-        isDown = false;
-        track.classList.remove('dragging');
-
-        if (hasDragged) {
-          setTimeout(() => {
-            suppressClick = false;
-          }, 0);
-        }
-      };
-
-      const onMouseLeave = () => {
-        if (!isDown) return;
-        isDown = false;
-        track.classList.remove('dragging');
-      };
-
-      track.addEventListener('mousedown', onMouseDown);
-      window.addEventListener('mousemove', onMouseMove);
-      window.addEventListener('mouseup', onMouseUp);
-      track.addEventListener('mouseleave', onMouseLeave);
-
-      track.addEventListener('dragstart', (e) => {
-        e.preventDefault();
-      });
-
-      track.addEventListener('click', (e) => {
-        if (!suppressClick) return;
-        e.preventDefault();
-        e.stopPropagation();
-      }, true);
-
-      track._dragState = {
-        get suppressClick() {
-          return suppressClick;
-        }
-      };
+    if (Math.abs(dx) > threshold) {
+      hasDragged = true;
+      suppressClick = true;
     }
 
+    if (hasDragged) {
+      track.scrollLeft = startScrollLeft - dx;
+    }
+  };
+
+  const endDrag = () => {
+    if (!isDown) return;
+    isDown = false;
+    track.classList.remove('dragging');
+
+    if (hasDragged) {
+      setTimeout(() => {
+        suppressClick = false;
+      }, 0);
+    }
+  };
+
+  // 마우스
+  const onMouseDown = (e) => {
+    if (e.button !== 0) return;
+    startDrag(e.clientX);
+  };
+  const onMouseMove = (e) => moveDrag(e.clientX);
+  const onMouseUp = () => endDrag();
+  const onMouseLeave = () => {
+    if (!isDown) return;
+    isDown = false;
+    track.classList.remove('dragging');
+  };
+
+  track.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('mouseup', onMouseUp);
+  track.addEventListener('mouseleave', onMouseLeave);
+
+  // 터치 (모바일 대응) — 이 부분이 빠져있던 부분입니다
+  const onTouchStart = (e) => {
+    startDrag(e.touches[0].clientX);
+  };
+  const onTouchMove = (e) => {
+    if (hasDragged) {
+      e.preventDefault(); // 세로 스크롤/새로고침 제스처와 충돌 방지
+    }
+    moveDrag(e.touches[0].clientX);
+  };
+  const onTouchEnd = () => endDrag();
+
+  track.addEventListener('touchstart', onTouchStart, { passive: true });
+  track.addEventListener('touchmove', onTouchMove, { passive: false });
+  track.addEventListener('touchend', onTouchEnd);
+  track.addEventListener('touchcancel', onTouchEnd);
+
+  track.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  });
+
+  track.addEventListener('click', (e) => {
+    if (!suppressClick) return;
+    e.preventDefault();
+    e.stopPropagation();
+  }, true);
+
+  track._dragState = {
+    get suppressClick() {
+      return suppressClick;
+    }
+  };
+}
     document.querySelectorAll('.slider-track').forEach(enableDragScroll);
 
     document.querySelectorAll('.modal-card').forEach((card) => {
@@ -540,3 +562,54 @@
         video.currentTime = 0;
       });
     });
+
+
+//햄버거 버튼
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navLinks = document.getElementById('navLinks');
+
+
+function openMobileMenu() {
+  navLinks.classList.add('active');
+  hamburgerBtn.classList.add('active');
+  hamburgerBtn.setAttribute('aria-expanded', 'true');
+  // 메뉴 활성화 여부에 따라 스크롤 방지/해제
+  if (navLinks.classList.contains('active')) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
+
+
+// 메뉴 닫기 함수
+function closeMobileMenu() {
+  navLinks.classList.remove('active');
+  hamburgerBtn.classList.remove('active');
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = ''; // 스크롤 다시 허용
+}
+
+hamburgerBtn.addEventListener('click', () => {
+  if (navLinks.classList.contains('active')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+});
+
+// 메뉴 링크 클릭 시 자동으로 닫기
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    closeMobileMenu();
+  });
+});
+
+// 메뉴 바깥 클릭 시 닫기
+document.addEventListener('click', (e) => {
+  if (navLinks.classList.contains('active') &&
+      !navLinks.contains(e.target) &&
+      !hamburgerBtn.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
