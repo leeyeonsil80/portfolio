@@ -1146,6 +1146,14 @@ h2{
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.9);
 }
+
+/* 호버가 불가능한 터치 기기(모바일)에서는 재생버튼을 아예 노출하지 않음 */
+@media (hover: none) {
+  .thumb-play-button {
+    display: none;
+  }
+}
+
 .brand_thumb{
   height: auto;
   overflow: hidden;
