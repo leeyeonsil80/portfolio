@@ -562,7 +562,20 @@ function enableDragScroll(track) {
         video.currentTime = 0;
       });
     });
+    //모바일 thumb-video 영상 안보이는 문제
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target.querySelector('.thumb-video');
+      if (!video) return;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.5 });
 
+document.querySelectorAll('.thumb-card').forEach((card) => observer.observe(card));
 
 //햄버거 버튼
 const hamburgerBtn = document.getElementById('hamburgerBtn');

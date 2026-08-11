@@ -1160,6 +1160,9 @@ h2{
   bottom: 0;
   z-index: 2;
 }
+#videoTrack .thumb-overlay{
+  display: none;
+}
 /* skill icon */
 .skills-icon{
       display: grid;
