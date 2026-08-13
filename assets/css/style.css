@@ -962,6 +962,7 @@ h2{
 
 .reels-thumb {
   aspect-ratio: 9 / 16;
+  border:none;
 }
 
 .cardnews-thumb {
